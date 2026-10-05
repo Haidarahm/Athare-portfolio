@@ -233,11 +233,13 @@ em { font-style: italic; }
 .hero__title {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 0;
   pointer-events: none;
   font: 400 clamp(4.5rem, 15.5vw, 17rem)/0.86 var(--serif);
   letter-spacing: -0.035em;
 }
+/* white copy of the name living inside the lens, so it's clipped to the photo */
+.hero__lens .hero__title { z-index: 2; color: #fff; text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35); }
 .hero__line { position: absolute; display: block; overflow: hidden; padding: 0.04em 0.1em 0.08em; }
 .hero__line--a { top: 13vh; left: calc(var(--gutter) - 0.1em); }
 .hero__line--b { right: calc(var(--gutter) - 0.1em); bottom: 17vh; }

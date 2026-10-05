@@ -30,21 +30,25 @@ export default function Hero({ ready }) {
     transition: { duration: 1, ease: EASE, delay },
   });
 
+  const title = (props) => (
+    <h1 className="hero__title" {...props}>
+      <span className="hero__line hero__line--a"><Letters text={person.first} play={ready} delay={0.2} /></span>
+      <span className="hero__line hero__line--b"><em><Letters text={person.last} play={ready} delay={0.45} stagger={0.035} /></em></span>
+    </h1>
+  );
+
   return (
     <section className="hero" id="top" ref={root} data-chapter={ch.name} data-tone={ch.tone}>
+      {title()}
       <div className="hero__lens">
         <img src={photo('dawn-hero', 1920, 1280)} alt="First light over the dunes" />
+        {title({ 'aria-hidden': true })}
         <Corners />
         <p className="hero__caption">
           <span className="mono">{ch.time} — first light</span>
           Every story I tell <em>starts with light.</em>
         </p>
       </div>
-
-      <h1 className="hero__title">
-        <span className="hero__line hero__line--a"><Letters text={person.first} play={ready} delay={0.2} /></span>
-        <span className="hero__line hero__line--b"><em><Letters text={person.last} play={ready} delay={0.45} stagger={0.035} /></em></span>
-      </h1>
 
       <motion.div className="hero__meta" {...fade(1.1)}>
         <ChapterTag chapter={ch} />
